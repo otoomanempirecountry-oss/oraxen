@@ -2,7 +2,7 @@
   "oraxenVersion": "1.205.0",
   "minecraftVersion": "1.21.11",
   "serverVersion": "1.21.11-R0.1-SNAPSHOT",
-  "generatedAt": "2026-01-26T16:18:28.172456522Z",
+  "generatedAt": "2026-01-31T21:59:34.484731129Z",
   "enums": {
     "Material": {
       "values": [
@@ -7785,14 +7785,14 @@
           "type": "object",
           "description": "Drop configuration when broken",
           "properties": {
-            "loots": {
-              "type": "array",
-              "description": "List of loot entries"
-            },
             "silktouch": {
               "type": "boolean",
               "description": "Require silk touch",
               "default": false
+            },
+            "loots": {
+              "type": "array",
+              "description": "List of loot entries"
             }
           }
         },
@@ -7800,10 +7800,6 @@
           "type": "object",
           "description": "Directional block configuration",
           "properties": {
-            "x_block": {
-              "type": "string",
-              "description": "X-axis variant ID"
-            },
             "y_block": {
               "type": "string",
               "description": "Y-axis variant ID"
@@ -7815,6 +7811,10 @@
             "z_block": {
               "type": "string",
               "description": "Z-axis variant ID"
+            },
+            "x_block": {
+              "type": "string",
+              "description": "X-axis variant ID"
             }
           }
         },
@@ -7838,23 +7838,23 @@
           "type": "object",
           "description": "Log stripping configuration",
           "properties": {
+            "stripped_log": {
+              "type": "string",
+              "description": "Stripped log block ID"
+            },
             "drop": {
               "type": "object",
               "description": "Item dropped on strip",
               "properties": {
-                "oraxen_item": {
-                  "type": "string",
-                  "description": "Oraxen item ID"
-                },
                 "minecraft_type": {
                   "type": "string",
                   "description": "Vanilla item type"
+                },
+                "oraxen_item": {
+                  "type": "string",
+                  "description": "Oraxen item ID"
                 }
               }
-            },
-            "stripped_log": {
-              "type": "string",
-              "description": "Stripped log block ID"
             }
           }
         }
@@ -7923,16 +7923,16 @@
           "type": "object",
           "description": "Custom hitbox dimensions",
           "properties": {
-            "height": {
+            "width": {
               "type": "number",
-              "description": "Hitbox height",
+              "description": "Hitbox width",
               "default": 1.0,
               "min": 0.0,
               "max": 10.0
             },
-            "width": {
+            "height": {
               "type": "number",
-              "description": "Hitbox width",
+              "description": "Hitbox height",
               "default": 1.0,
               "min": 0.0,
               "max": 10.0
@@ -7943,14 +7943,14 @@
           "type": "object",
           "description": "Seat configuration for sittable furniture",
           "properties": {
-            "height": {
-              "type": "number",
-              "description": "Seat height offset",
-              "default": 0.0
-            },
             "yaw": {
               "type": "number",
               "description": "Seat rotation",
+              "default": 0.0
+            },
+            "height": {
+              "type": "number",
+              "description": "Seat height offset",
               "default": 0.0
             }
           }
@@ -8046,14 +8046,14 @@
           "type": "object",
           "description": "Drop configuration when broken",
           "properties": {
-            "loots": {
-              "type": "array",
-              "description": "List of loot entries"
-            },
             "silktouch": {
               "type": "boolean",
               "description": "Require silk touch to drop",
               "default": false
+            },
+            "loots": {
+              "type": "array",
+              "description": "List of loot entries"
             }
           }
         },
@@ -8251,14 +8251,14 @@
           "type": "object",
           "description": "Drop configuration when broken",
           "properties": {
-            "loots": {
-              "type": "array",
-              "description": "List of loot entries"
-            },
             "silktouch": {
               "type": "boolean",
               "description": "Require silk touch",
               "default": false
+            },
+            "loots": {
+              "type": "array",
+              "description": "List of loot entries"
             }
           }
         },
@@ -8266,10 +8266,6 @@
           "type": "object",
           "description": "Custom block sounds",
           "properties": {
-            "break_sound": {
-              "type": "string",
-              "description": "Sound when broken"
-            },
             "hit_sound": {
               "type": "string",
               "description": "Sound when hit"
@@ -8285,6 +8281,10 @@
             "step_sound": {
               "type": "string",
               "description": "Sound when stepped on"
+            },
+            "break_sound": {
+              "type": "string",
+              "description": "Sound when broken"
             }
           }
         },
@@ -8292,13 +8292,13 @@
           "type": "object",
           "description": "Placement restrictions",
           "properties": {
-            "block_types": {
-              "type": "array",
-              "description": "Block types to allow/deny"
-            },
             "type": {
               "type": "string",
               "description": "ALLOW or DENY list type"
+            },
+            "block_types": {
+              "type": "array",
+              "description": "Block types to allow/deny"
             }
           }
         },
@@ -8695,14 +8695,14 @@
           "type": "object",
           "description": "Drop configuration when broken",
           "properties": {
-            "loots": {
-              "type": "array",
-              "description": "List of loot entries"
-            },
             "silktouch": {
               "type": "boolean",
               "description": "Require silk touch",
               "default": false
+            },
+            "loots": {
+              "type": "array",
+              "description": "List of loot entries"
             }
           }
         },
@@ -8736,16 +8736,16 @@
       "category": "farming",
       "description": "Allows breaking bedrock (requires ProtocolLib)",
       "properties": {
-        "delay": {
-          "type": "integer",
-          "description": "Break delay in ticks",
-          "min": 0
-        },
         "probability": {
           "type": "number",
           "description": "Chance to break (0-1)",
           "min": 0,
           "default": 1.0
+        },
+        "delay": {
+          "type": "integer",
+          "description": "Break delay in ticks",
+          "min": 0
         }
       }
     },
